@@ -1,0 +1,74 @@
+/* You can add global styles to this file, and also import other style files */
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,700&subset=latin-ext);
+
+$fontFamily:'Josefin Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
+$pageBackground:#ffffff;
+$pageTextColor: #353C4C;
+
+$fontSizeDesktop:20px;
+$lineHeightDesktop:20px;
+$fontSizeMobile:14px;
+$lineHeightMobile:16px;
+
+$break-mobile: 320px;
+$break-tablet: 740px;
+$break-desktop: 980px;
+$break-wide: 1300px;
+
+body {
+    padding: 0px 15px 0px 15px;
+    margin: 0;
+    background: $pageBackground;
+    font-family: $fontFamily;
+    color: $pageTextColor;
+	font-weight: 300;
+    @media screen and (max-width: $break-mobile) {
+        font-size: $fontSizeMobile;
+        line-height: $lineHeightMobile;
+    }
+    @media screen and (min-width: $break-wide) {
+        font-size: $fontSizeDesktop;
+        line-height: $lineHeightDesktop;
+    }
+}
+a {
+    text-decoration: none;
+        &hover{
+            text-decoration: underline;
+        } 
+}
+header {
+    max-width: $break-wide;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin: 0px auto 50px auto;
+    font-size: 0.7em;
+        @media screen and (max-width: $break-mobile) {
+            justify-content:center;
+        }
+        nav {
+            display: flex;
+            text-align: center;
+                a {
+                    padding: 10px;
+                }
+        }
+        svg {
+            max-width: 38px;
+            max-height: 38px;
+        }
+        span {
+            display: block;
+            @media screen and (max-width: $break-mobile) {
+                display: none;
+            }
+        }
+        #cnrLogo {
+            max-width: 160px;
+        }         
+}
+section.home {
+    max-width: $break-wide;
+    margin: 0px auto;
+}
