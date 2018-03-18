@@ -1,12 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
-@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:100,300,700&subset=latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext);
 
 $fontFamily:'Josefin Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
 $pageBackground:#ffffff;
 $pageTextColor: #353C4C;
 
 $fontSizeDesktop:20px;
-$lineHeightDesktop:20px;
+$lineHeightDesktop:26px;
 $fontSizeMobile:14px;
 $lineHeightMobile:16px;
 
@@ -14,13 +14,19 @@ $break-mobile: 320px;
 $break-tablet: 740px;
 $break-desktop: 980px;
 $break-wide: 1300px;
+$blue:#0F50C0;
+$darkBlue:#09245a;
+$turquaz:#00CCD0;
+$pink:#F032B1;
+$darkBlack: #0D0D0D;
+
 
 body {
-    padding: 0px 15px 0px 15px;
-    margin: 0;
+    padding:0;
+    margin:0;
     background: $pageBackground;
     font-family: $fontFamily;
-    color: $pageTextColor;
+    color: $blue;
 	font-weight: 300;
     @media screen and (max-width: $break-mobile) {
         font-size: $fontSizeMobile;
@@ -31,44 +37,209 @@ body {
         line-height: $lineHeightDesktop;
     }
 }
+h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
 a {
     text-decoration: none;
-        &hover{
+        &:hover{
             text-decoration: underline;
-        } 
+        }
+        
 }
+:focus {
+    outline: 1px dotted $pageTextColor !important;
+} 
 header {
     max-width: $break-wide;
     display: flex;
     flex-wrap: wrap;
     justify-content:space-between;
-    margin: 0px auto 50px auto;
+    margin: 0px auto 10px auto;
+    padding: 0;
     font-size: 0.7em;
         @media screen and (max-width: $break-mobile) {
             justify-content:center;
         }
         nav {
             display: flex;
+            border-left: 2px solid rgba(255,255,255,0.2);
+            border-right: 2px solid rgba(255,255,255,0.2);
+            border-bottom: 2px solid rgba(255,255,255,0.2);
             text-align: center;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 35px;
+            @media screen and (max-width: $break-tablet) {
+                padding:0;
+            }
                 a {
-                    padding: 10px;
+                    padding: 0 15px;
+                    line-height: 2em;
+                    font-weight: 700;
+                    font-size: 0.8em;
+                    border-bottom:2px solid transparent;
+                    text-transform: uppercase;
+                    color:#ffffff;        
+                        &:hover {
+                            text-decoration: none;
+                        }       
+                        &:active,&:focus  {
+                            color: $darkBlue;
+                        }
+                        &::after {
+                            content: '';
+                            display: block;
+                            width: 0;
+                            height: 3px;
+                            background:$darkBlue;
+                            transition: width .3s;
+                        }
+                        &:hover::after {
+                            width: 100%;
+                        }
+
                 }
         }
         svg {
-            max-width: 38px;
-            max-height: 38px;
-        }
-        span {
-            display: block;
-            @media screen and (max-width: $break-mobile) {
-                display: none;
+            max-width: 215px;
+            max-height: 83px;
+            width: 100%;
+            @media screen and (max-width: $break-tablet) {
+                margin: 0px auto
             }
         }
         #cnrLogo {
             max-width: 160px;
         }         
 }
-section.home {
+.pullLeft {
+    float: left;
+}
+.pullRight {
+    float: right;
+}
+.section {
     max-width: $break-wide;
-    margin: 0px auto;
+    margin: 20px auto;
+    @media screen and (max-width: $break-tablet) {
+        padding: 0px 15px;
+    }
+    .title {
+        text-align: center;
+        line-height: 2em;
+    }
+    .description {
+        text-align: center;
+        line-height: 2em;
+        font-weight: 300;
+    }
+}
+div#hero {
+    background: $blue url('./assets/slice3.png') center center repeat;
+    background-size: 80%;
+    overflow: auto;
+    @media screen and (max-width: $break-tablet) {
+        padding: 0px 15px;
+    }
+}
+#aboutMe {
+    max-width: $break-wide;
+    text-align: left;
+    font-weight: 300;
+    margin: 100px auto;
+    color:#ffffff;
+        p   {
+            line-height: 2em;
+            font-size: 1em; 
+        }
+        h1  {
+            font-weight: 300;
+            font-size: 2em; 
+        }
+        span {
+            font-weight: 700;
+        }
+}
+.myPhoto {
+    @media screen and (max-width: $break-tablet) {
+        text-align: center;
+    }
+    img {
+        margin:0 0 100px 120px;
+        box-shadow: 15px 15px 0px rgba(0, 0, 0, 0.3);
+        max-width: 427px;
+        width: 100%;
+        @media screen and (max-width: $break-tablet) {
+            text-align: center;
+            margin:0 auto 50px auto;
+            width: 90%;
+        }
+    }
+    &:before {
+        content: "";
+        width: 38px;
+        height: 38px;
+        background: $turquaz;
+        display: block;
+        border-radius: 50%;
+        margin-left: 100px;
+        margin-top: 30px;
+        z-index: 1;
+        position: absolute;
+        @media screen and (max-width: $break-tablet) {
+            display: none;
+        }
+    }
+
+    &:after {
+        content: "";
+        width: 138px;
+        height: 18px;
+        background: $pink;
+        display: block;
+        margin-left: 375px;
+        margin-top: -435px;
+        z-index: 1;
+        position: absolute;
+        @media screen and (max-width: $break-tablet) {
+            display: none;
+        }
+    }
+}
+
+footer {
+    max-width: $break-wide;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    margin: 0px auto 50px auto;
+    padding: 15px 0;
+    font-size: 0.7em;
+    font-weight: 700;
+    color:$blue;
+        span {
+            border-top:2px solid $blue;
+            padding: 15px 0;
+        }
+        ol {            
+            border-top:2px solid $blue;
+            padding: 0;
+            li {
+                display: inline;
+                a {
+                    padding: 15px 5px;
+                    display: inline-block;
+                    &:hover {
+                        fill: $darkBlue;
+                    }  
+                }
+            }
+        }
+        svg {
+            width: 24px;
+            height: 24px;
+            fill:$blue;
+            
+        }
 }
