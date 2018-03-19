@@ -207,7 +207,31 @@ div#hero {
         }
     }
 }
+#myWorks {
+    overflow: auto;
+    ul {
+        list-style-type: none;
+        li {
+            width: 50%;
+            margin-bottom: 50px;
+            &:nth-child(odd) {
+                float: left;
+                text-align: left;
+                img {
+                    box-shadow: 15px 15px 0px $blue;
+                }
+            }
+            &:nth-child(even) {
+                float: right;
+                text-align: right;
+                img {
+                    box-shadow: -15px 15px 0px $blue;
+                }
 
+            }
+        }
+    }
+}
 footer {
     max-width: $break-wide;
     display: flex;
