@@ -31,6 +31,12 @@ export class AppComponent {
     "date": "17.03.2018",
     "title": "proje 4",
     "image": "proje4.jpg"
+    },
+    {
+    "index": 5,
+    "date": "17.03.2018",
+    "title": "proje 5",
+    "image": "proje5.jpg"
     }
   ];
 }

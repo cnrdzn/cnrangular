@@ -57,14 +57,52 @@
 <h5 class="description">Hazırlamış olduğum çalışmalardan bazı örnekler.</h5>
 <ul>
   <li *ngFor="let work of works">
-    {{ work.title }} - {{ work.date }} <img src="http://via.placeholder.com/540x540?text={{ work.image }}" alt="{{ work.title }}">
+    <span class="wtitle">{{ work.title }}</span><span class="wdate">{{ work.date }}</span> <img src="http://via.placeholder.com/540x540?text={{ work.image }}" alt="{{ work.title }}">
   </li>
 </ul>
 </div>
 <div class="section" id="readingList">
   <h1 class="title">// Okuma Listesi</h1>
   <h5 class="description">Takip edilmesi ve okunması gereken siteler.</h5>
-okuma listesi
+  <figure>
+    <figcaption>Takip edilmelik siteler</figcaption>
+    <dl>
+        <dt><a href="#">Test</a></dt>
+        <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit ac dolor nec consequat.</dd>
+        <dt><a href="#">Test</a></dt>
+        <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit ac dolor nec consequat.</dd>
+        <dt><a href="#">Test</a></dt>
+        <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit ac dolor nec consequat.</dd>
+        <dt><a href="#">Test</a></dt>
+        <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit ac dolor nec consequat.</dd>
+      </dl>
+  </figure>
+  <figure>
+      <figcaption>Geliştiriciler için</figcaption>
+      <dl>
+          <dt><a href="https://frontend.directory" target="_blank">frontend.directory</a></dt>
+          <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit ac dolor nec consequat.</dd>
+          <dt><a href="#">Test</a></dt>
+          <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit ac dolor nec consequat.</dd>
+          <dt><a href="#">Test</a></dt>
+          <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit ac dolor nec consequat.</dd>
+          <dt><a href="#">Test</a></dt>
+          <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit ac dolor nec consequat.</dd>
+        </dl>
+    </figure>
+    <figure>
+        <figcaption>Araçlar</figcaption>
+        <dl>
+            <dt><a href="https://www.designer.io" target="_blank">Gravit Designer</a></dt>
+            <dd>Tüm platformlarda çalışaan ücretsiz arayüz tasarım aracı.</dd>
+            <dt><a href="https://pencil.evolus.vn" target="_blank">Pencil Project</a></dt>
+            <dd>Açık kaynak kodlu, arayüz prototipi hazırlama aracı.</dd>
+            <dt><a href="#">Test</a></dt>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit ac dolor nec consequat.</dd>
+            <dt><a href="#">Test</a></dt>
+            <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum hendrerit ac dolor nec consequat.</dd>
+          </dl>
+      </figure>
 </div>
 <div class="section" id="contactMe">
   <h1 class="title">// İletişim</h1>

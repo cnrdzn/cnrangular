@@ -121,7 +121,7 @@ header {
 }
 .section {
     max-width: $break-wide;
-    margin: 20px auto;
+    margin: 120px auto;
     @media screen and (max-width: $break-tablet) {
         padding: 0px 15px;
     }
@@ -133,6 +133,7 @@ header {
         text-align: center;
         line-height: 2em;
         font-weight: 300;
+        margin: 0 auto 50px auto;
     }
 }
 div#hero {
@@ -211,25 +212,74 @@ div#hero {
     overflow: auto;
     ul {
         list-style-type: none;
+        padding: 0;
         li {
-            width: 50%;
-            margin-bottom: 50px;
+            width: calc(50% - 2px);
+            padding-bottom: 50px;
+            .wtitle {
+                background: $pink;
+                padding: 10px;
+                position: relative;
+                color: #ffffff;
+                margin:0px 50px;
+            }
+            .wdate {
+                border-bottom:2px solid $blue;
+                margin-top: 36px;
+                font-size: 0.8em;
+            }
             &:nth-child(odd) {
                 float: left;
                 text-align: left;
+                border-right: 2px solid $blue;
                 img {
+                    margin:-10px 0px 0px 0px;
                     box-shadow: 15px 15px 0px $blue;
+                    width: 80%;
+                }
+                .wdate {
+                    float: right;
+                    margin-right: 20px;
                 }
             }
             &:nth-child(even) {
                 float: right;
                 text-align: right;
+                border-left: 2px solid $blue;
+                padding-top: 50px;
                 img {
+                    margin:-10px 0px 0px 0px;
                     box-shadow: -15px 15px 0px $blue;
+                    width: 80%;
+                }
+                .wdate {
+                    float: left;
+                    margin-left: 20px;
                 }
 
             }
         }
+    }
+}
+#readingList {
+    overflow: auto;
+    figure {
+        float: left;
+        width: 33%;
+        margin:0;
+        figcaption {
+            font-size: 1.3em;
+        }
+    }
+    a {
+        font-weight: 700;
+    }
+    dd {
+        margin-left: 0px;
+        border-left:2px solid $pink;
+        padding-left: 10px;
+        margin:0 0 20px 0;
+        font-size: 0.8em;
     }
 }
 footer {
