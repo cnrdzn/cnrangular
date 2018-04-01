@@ -261,7 +261,7 @@ div#hero {
         }
     }
 }
-#readingList {
+#followingList {
     overflow: auto;
     figure {
         float: left;
@@ -273,12 +273,17 @@ div#hero {
     }
     a {
         font-weight: 700;
+        color:$blue;
+        &:hover {
+            color: $darkBlue;
+        }
     }
     dd {
         margin-left: 0px;
         border-left:2px solid $pink;
         padding-left: 10px;
         margin:0 0 20px 0;
+        transition: 0.2s all cubic-bezier(0.1, 0.7, 1.0, 0.1);
         font-size: 0.8em;
     }
 }
