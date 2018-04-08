@@ -119,20 +119,29 @@
   <h5 class="description">İletişim kurabileceğiniz sosyal ağlardan kısa bilgiler.</h5>
   <p>mail[@]cnr.design</p>
   github feed
-  <ul *ngIf="github$ | async as github else noData">
-    <li *ngFor="let feed of github">
+  <ul *ngIf="github$ | async as github else noDataGit">
+    <li *ngFor="let feed of github | slice:0:5">
         {{feed.type}} {{feed.repo.name}} {{feed.created_at}}
     </li> 
 </ul>
-<ng-template #noData>No Data Available</ng-template>
+<hr>
+<ng-template #noDataGit>No Data Available</ng-template>
 twitter feed
-<ul *ngIf="posts$ | async as posts else noData">
-  <li *ngFor="let post of posts">
-      {{post.title}}
+<ul *ngIf="tweets$ | async as tweets else noDataTweet">
+  <li *ngFor="let tweet of tweets | slice:0:5">
+      {{tweet.title}}
   </li> 
 </ul>
-<ng-template #noData>No Data Available</ng-template>
+<hr>
+<ng-template #noDataTweet>No Data Available</ng-template>
 instagram feed
+<ul *ngIf="screens$ | async as screens else noDataInstagram">
+  <li *ngFor="let screen of screens">
+      {{screen.logging_page_id}}
+  </li> 
+</ul>
+<ng-template #noDataInstagram>No Data Available</ng-template>
+
 </div>
 <footer>
    <span>© 2001- 2018</span>

@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
 import {HttpClient} from "@angular/common/http";
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/filter';
 import { forOwn } from 'lodash';
-
 
 interface GitHub {
   type: string;
@@ -11,10 +13,18 @@ interface GitHub {
   payload:string;
 }
 
-interface Posts {
+interface Twitter {
   title: string;
   id:string;
   body:string;
+  userId;string;
+}
+
+interface Instagram {
+  display_url: string;
+  logging_page_id:string;
+  id:string;
+  __typename:string;
 }
 @Component({
   selector: 'app-root',
@@ -26,18 +36,47 @@ export class AppComponent implements OnInit {
 
   github$: Observable<GitHub[]>;
 
-  posts$: Observable<Posts[]>;
-  constructor(private http:HttpClient) {
-  }
+  tweets$: Observable<Twitter[]>;
+  
+  screens$: Observable<Instagram[]>;
 
+  url = "https://api.github.com/users/cnrdzn/events";
+
+
+
+
+  constructor(private http:HttpClient) {
+
+  }
   ngOnInit() {
+
       this.github$ = this.http
           .get<GitHub[]>("https://api.github.com/users/cnrdzn/events")
           .map(data => forOwn(data))
           
-      this.posts$ = this.http
-      .get<Posts[]>("https://jsonplaceholder.typicode.com/posts")
-      .map(data => forOwn(data))          
+      this.tweets$ = this.http
+          .get<Twitter[]>("https://jsonplaceholder.typicode.com/posts")
+          .map(data => data.filter(value => value.userId == '1'))    
+        
+      this.screens$ = this.http
+          .get<Instagram[]>("https://www.instagram.com/cnr.design.tr/?__a=1")
+          .map(data => forOwn([data]))
+          /*.map(data => {
+            let results = [];
+            data['graphql'].forEach(item => {
+              results = results.concat(item['biography'].map(data => {
+                return {
+                 'parentId': item.user,
+                //  'name': child.name,
+                };
+              }));
+            });
+        
+            return results;
+          })*/
+          //.map(data => data.filter(value => value.graphql.user.edge_owner_to_timeline_media.edges[0].node.__typename == 'GraphImage'))
+          .do(data => console.log(data));
+
   }
 
   works = [
