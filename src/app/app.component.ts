@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient,HttpHeaders} from "@angular/common/http";
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -26,6 +26,9 @@ interface Instagram {
   id:string;
   __typename:string;
 }
+interface Dribbble {
+  id:string;
+}
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -40,6 +43,8 @@ export class AppComponent implements OnInit {
   
   screens$: Observable<Instagram[]>;
 
+  shots$: Observable<Dribbble[]>;
+
   url = "https://api.github.com/users/cnrdzn/events";
 
 
@@ -49,6 +54,9 @@ export class AppComponent implements OnInit {
 
   }
   ngOnInit() {
+
+      const headers = new HttpHeaders()
+      .set('Authorization', 'Bearer ' + 'b0ea3a8693440251d230835765903fd85c7c89698d81e4a66817c1887a8f7f5b');
 
       this.github$ = this.http
           .get<GitHub[]>("https://api.github.com/users/cnrdzn/events")
@@ -61,6 +69,12 @@ export class AppComponent implements OnInit {
       this.screens$ = this.http
           .get<Instagram[]>("https://www.instagram.com/cnr.design.tr/?__a=1")
           .map(data => forOwn([data]))
+
+          this.shots$ = this.http
+          .get<Dribbble[]>("https://api.dribbble.com/v2/shots/471756",{headers})
+          .map(data => forOwn(data))
+
+          //jqxhr.setRequestHeader('Authorization', 'Bearer ' + ACCESS_TOKEN);
           /*.map(data => {
             let results = [];
             data['graphql'].forEach(item => {

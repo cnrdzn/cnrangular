@@ -141,7 +141,13 @@ instagram feed
   </li> 
 </ul>
 <ng-template #noDataInstagram>No Data Available</ng-template>
-
+dribble feed
+<ul *ngIf="shots$ | async as shots else noDataDribbble">
+  <li *ngFor="let shot of shots">
+      {{screen.logging_page_id}}
+  </li> 
+</ul>
+<ng-template #noDataDribbble>No Data Available</ng-template>
 </div>
 <footer>
    <span>© 2001- 2018</span>
