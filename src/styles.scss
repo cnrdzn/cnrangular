@@ -16,6 +16,7 @@ $break-desktop: 980px;
 $break-wide: 1300px;
 $blue:#0F50C0;
 $darkBlue:#09245a;
+$lightBlue:#f0f4fb;
 $turquaz:#00CCD0;
 $pink:#F032B1;
 $darkBlack: #0D0D0D;
@@ -112,6 +113,10 @@ header {
         #cnrLogo {
             max-width: 160px;
         }         
+}
+.lightBg {
+    background: $lightBlue;
+    width: 100%;
 }
 .pullLeft {
     float: left;
@@ -263,6 +268,7 @@ div#hero {
 }
 #followingList {
     overflow: auto;
+    padding: 30px 0px;
     figure {
         float: left;
         width: 33%;
@@ -286,6 +292,34 @@ div#hero {
         transition: 0.2s all cubic-bezier(0.1, 0.7, 1.0, 0.1);
         font-size: 0.8em;
     }
+}
+#contactMe .feedWrapper {
+    display: flex;
+    flex-wrap: wrap;
+        .feedblock {
+            flex-grow: 1;
+            width: 33%;
+            ul {
+                margin: 0px;
+                padding: 0px;
+                list-style-type: none;
+            }
+           
+        }
+        .dribbleshot {
+            display: inline;
+        }
+        .dribbledesc {
+            display: none;
+        }
+        .dribbleimg {
+            width:31%;
+            margin: 1px;
+        }
+        .githubdate {
+            display: block;
+            font-size: 0.8em;
+        } 
 }
 footer {
     max-width: $break-wide;
