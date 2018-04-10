@@ -55,9 +55,11 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
 
-      const headers = new HttpHeaders()
+      /*const headers = new HttpHeaders()
       .set('Authorization', 'Bearer ' + 'b0ea3a8693440251d230835765903fd85c7c89698d81e4a66817c1887a8f7f5b');
 
+      ,{headers}
+*/
       this.github$ = this.http
           .get<GitHub[]>("https://api.github.com/users/cnrdzn/events")
           .map(data => forOwn(data))
@@ -66,29 +68,9 @@ export class AppComponent implements OnInit {
           .get<Twitter[]>("https://jsonplaceholder.typicode.com/posts")
           .map(data => data.filter(value => value.userId == '1'))    
         
-      this.screens$ = this.http
-          .get<Instagram[]>("https://www.instagram.com/cnr.design.tr/?__a=1")
-          .map(data => forOwn([data]))
-
           this.shots$ = this.http
-          .get<Dribbble[]>("https://api.dribbble.com/v2/shots/471756",{headers})
+          .get<Dribbble[]>("https://api.dribbble.com/v2/user/shots?access_token=9b2e2043a2d36bf62d82756dbb65d63ecd91846b1a154aa2e0acb3e93e021a53")
           .map(data => forOwn(data))
-
-          //jqxhr.setRequestHeader('Authorization', 'Bearer ' + ACCESS_TOKEN);
-          /*.map(data => {
-            let results = [];
-            data['graphql'].forEach(item => {
-              results = results.concat(item['biography'].map(data => {
-                return {
-                 'parentId': item.user,
-                //  'name': child.name,
-                };
-              }));
-            });
-        
-            return results;
-          })*/
-          //.map(data => data.filter(value => value.graphql.user.edge_owner_to_timeline_media.edges[0].node.__typename == 'GraphImage'))
           .do(data => console.log(data));
 
   }

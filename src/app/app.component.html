@@ -134,17 +134,16 @@ twitter feed
 </ul>
 <hr>
 <ng-template #noDataTweet>No Data Available</ng-template>
-instagram feed
-<ul *ngIf="screens$ | async as screens else noDataInstagram">
-  <li *ngFor="let screen of screens">
-      {{screen.logging_page_id}}
-  </li> 
-</ul>
-<ng-template #noDataInstagram>No Data Available</ng-template>
+
 dribble feed
 <ul *ngIf="shots$ | async as shots else noDataDribbble">
   <li *ngFor="let shot of shots">
-      {{screen.logging_page_id}}
+      {{shot.title}} 
+
+     <img srcset="{{shot.images.teaser}},
+            {{shot.images.normaldpi}} 1.5x,
+             {{shot.images.hidpi}} 2x"
+     src="{{shot.images.hidpi}}" alt="{{shot.title}}">
   </li> 
 </ul>
 <ng-template #noDataDribbble>No Data Available</ng-template>
