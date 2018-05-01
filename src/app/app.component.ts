@@ -13,19 +13,6 @@ interface GitHub {
   payload:string;
 }
 
-interface Twitter {
-  title: string;
-  id:string;
-  body:string;
-  userId;string;
-}
-
-interface Instagram {
-  display_url: string;
-  logging_page_id:string;
-  id:string;
-  __typename:string;
-}
 interface Dribbble {
   id:string;
 }
@@ -38,11 +25,7 @@ export class AppComponent implements OnInit {
   title = 'app';
 
   github$: Observable<GitHub[]>;
-
-  tweets$: Observable<Twitter[]>;
   
-  screens$: Observable<Instagram[]>;
-
   shots$: Observable<Dribbble[]>;
 
   url = "https://api.github.com/users/cnrdzn/events";
@@ -55,23 +38,15 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
 
-      /*const headers = new HttpHeaders()
-      .set('Authorization', 'Bearer ' + 'b0ea3a8693440251d230835765903fd85c7c89698d81e4a66817c1887a8f7f5b');
 
-      ,{headers}
-*/
-      this.github$ = this.http
-          .get<GitHub[]>("https://api.github.com/users/cnrdzn/events")
-          .map(data => forOwn(data))
-          
-      this.tweets$ = this.http
-          .get<Twitter[]>("https://jsonplaceholder.typicode.com/posts")
-          .map(data => data.filter(value => value.userId == '1'))    
-        
-          this.shots$ = this.http
-          .get<Dribbble[]>("https://api.dribbble.com/v2/user/shots?access_token=9b2e2043a2d36bf62d82756dbb65d63ecd91846b1a154aa2e0acb3e93e021a53")
-          .map(data => forOwn(data))
-          .do(data => console.log(data));
+        this.github$ = this.http
+        .get<GitHub[]>("https://api.github.com/users/cnrdzn/events")
+        .map(data => forOwn(data))
+      
+        this.shots$ = this.http
+        .get<Dribbble[]>("https://api.dribbble.com/v2/user/shots?access_token=9b2e2043a2d36bf62d82756dbb65d63ecd91846b1a154aa2e0acb3e93e021a53")
+        .map(data => forOwn(data))
+        .do(data => console.log(data));
 
   }
 

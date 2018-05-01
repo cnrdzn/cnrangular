@@ -124,33 +124,41 @@
   <p>mail[@]cnr.design</p>
   <div class="feedWrapper">
     <div class="feedblock">
-        <ul *ngIf="tweets$ | async as tweets else noDataTweet">
-          <li *ngFor="let tweet of tweets | slice:0:5">
-              {{tweet.title}}
-          </li>
-          <li><ng-template #noDataTweet>No Data Available</ng-template></li> 
-        </ul>
+      <form id="contactForm" method="POST" netlify>
+    
+        <div class="material-form-field">
+          <input type="text" required name="name" id="field-name"/>
+          <label class="material-form-field-label" for="field-name">Adınız</label>
+        </div>
+          
+        <div class="material-form-field">
+          <input type="text" required name="email" id="field-email"/>
+          <label class="material-form-field-label" for="field-email">Email adresiniz</label>
+        </div>
+        <div class="material-form-field">
+          <textarea type="text" required name="message" id="field-message"  cols="30" rows="7"></textarea>
+          <label class="material-form-field-label" for="field-message">Mesajınız</label>
+        </div>
+      </form>
     </div>
     <div class="feedblock">
-        <ul *ngIf="github$ | async as github else noDataGit">
+        <ul *ngIf="github$ | async as github">
             <li *ngFor="let feed of github | slice:0:5">
                 <span class="githubtype">{{feed.type}}</span> 
-                <span class="githubrepo">{{feed.repo.name}}</span> 
-                <span class="githubdate">{{feed.created_at}}</span>
+                <a title="{{feed.repo.name}} Projesi" class="githubrepo" href="https://github.com/{{feed.repo.name}}" target="_blank">{{feed.repo.name}}</a> 
+                <span class="githubdate"> {{ feed.created_at | date : "dd.MMM.y" }}</span>
             </li> 
-            <li><ng-template #noDataGit>No Data Available</ng-template></li>
         </ul>      
     </div>
     <div class="feedblock">
-      <ul *ngIf="shots$ | async as shots else noDataDribbble">
+      <ul *ngIf="shots$ | async as shots">
         <li class="dribbleshot" *ngFor="let shot of shots">
                 <span class="dribbledesc">{{shot.title}} </span>
                 <img class="dribbleimg" srcset="{{shot.images.teaser}},
                   {{shot.images.normaldpi}} 1.5x,
                   {{shot.images.hidpi}} 2x"
           src="{{shot.images.hidpi}}" alt="{{shot.title}}">
-        </li> 
-        <li><ng-template #noDataDribbble>No Data Available</ng-template></li>
+        </li>
       </ul>      
     </div>
 

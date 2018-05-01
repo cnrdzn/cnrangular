@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext);
-
+@import url('https://fonts.googleapis.com/css?family=PT+Mono&subset=latin-ext');
 $fontFamily:'Josefin Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
 $pageBackground:#ffffff;
 $pageTextColor: #353C4C;
@@ -21,11 +21,23 @@ $turquaz:#00CCD0;
 $pink:#F032B1;
 $darkBlack: #0D0D0D;
 
+$material-form-label: #000000;
+$material-form-label-focus: #3f51b5;
+$material-form-line: #000000;
+$material-form-line-focus: $material-form-label-focus;
+$material-form-input-text: $material-form-label;
+$material-form-input-text-focus: $material-form-label-focus;
+$material-form-field-invalid-foreground: #d50000;
+
+$material-labelOffset: 5px;
+$material-textInputPaddingTopBottom: 10px;
 
 body {
     padding:0;
     margin:0;
-    background: $pageBackground;
+    /*background: linear-gradient(0deg, rgba(220, 220, 220, 0.298039) 1px, transparent 1px), linear-gradient(90deg, rgba(220, 220, 220, 0.298039) 1px, transparent 1px), #ffffff;
+    background-position: -1px -1px;
+    background-size: 20px 20px;*/
     font-family: $fontFamily;
     color: $blue;
 	font-weight: 300;
@@ -304,6 +316,9 @@ div#hero {
                 padding: 0px;
                 list-style-type: none;
             }
+            li {
+                margin-bottom: 15px;
+            }
            
         }
         .dribbleshot {
@@ -316,11 +331,90 @@ div#hero {
             width:31%;
             margin: 1px;
         }
+        .githubtype {
+            font-size: 0.8em;
+            font-weight: 700;
+            border-right: 1px solid $blue;
+            padding-right: 5px;
+        } 
+        .githubrepo {
+            font-size: 0.8em;
+            font-weight: 700;
+            color:$blue;
+            &:hover {
+                color: $darkBlue;
+            }
+        }
         .githubdate {
             display: block;
             font-size: 0.8em;
         } 
 }
+.material-form-field{
+    font-family: $fontFamily;
+    font-size:14px;
+    position:relative;
+    margin-right: 20px;
+    display:block;
+    color:$blue;
+    padding:$material-labelOffset 0 10px 0;
+  
+    &::after{
+      content:"\00A0";
+      display:block;
+      color: $material-form-field-invalid-foreground;
+      font-size:12px;
+      padding-top:5px;
+    }
+  
+    .material-form-field-label{
+      position:absolute;
+      display:block;
+      top: $material-labelOffset + $material-textInputPaddingTopBottom;
+      left: 0px;
+      transition:0.2s ease all; 
+      -moz-transition:0.2s ease all; 
+      -webkit-transition:0.2s ease all;
+      pointer-events:none;
+      cursor:text;
+      font-weight: 400;
+    }
+  
+    input,textarea{
+      padding:$material-textInputPaddingTopBottom 0 $material-textInputPaddingTopBottom 0;
+      display:block;
+      width:100%;
+      border:none;
+      font-size:14px;
+      color:$blue;
+      border-bottom:1px solid $blue;
+      outline:none;
+      resize: vertical; 
+  
+      &:invalid{
+        outline:none;
+        box-shadow: none;
+      }
+      &:valid, &:focus{
+        & ~ .material-form-field-label{
+          top: $material-labelOffset - ($material-textInputPaddingTopBottom + 5);
+          font-size:12px;
+        }
+      }
+      &:focus{
+        outline:none;
+        color:$material-form-input-text-focus;
+        padding-bottom: $material-textInputPaddingTopBottom - 2;
+        border-bottom-width:3px;
+        border-bottom-color:$material-form-line-focus;
+  
+        & ~ .material-form-field-label{
+          color:$material-form-label-focus;
+        }
+      }
+    }
+  }
+  
 footer {
     max-width: $break-wide;
     display: flex;
