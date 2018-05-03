@@ -310,7 +310,8 @@ div#hero {
     flex-wrap: wrap;
         .feedblock {
             flex-grow: 1;
-            width: 33%;
+            width: 27%;
+            margin: 1%;
             ul {
                 margin: 0px;
                 padding: 0px;
@@ -318,6 +319,11 @@ div#hero {
             }
             li {
                 margin-bottom: 15px;
+            }
+            h4 {
+                margin-bottom: 20px;
+                border-bottom: 2px solid $pink;
+                display: inline-block;
             }
            
         }
@@ -379,7 +385,16 @@ div#hero {
       cursor:text;
       font-weight: 400;
     }
-  
+    button {
+        background: transparent;
+        border: 1px solid $blue;
+        padding: 10px 20px;
+        color: $blue;
+        &:hover {
+            background: $lightBlue;
+            border: 1px solid $blue;
+        }
+    }
     input,textarea{
       padding:$material-textInputPaddingTopBottom 0 $material-textInputPaddingTopBottom 0;
       display:block;
