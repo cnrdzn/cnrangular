@@ -342,6 +342,7 @@ div#hero {
             font-weight: 700;
             border-right: 1px solid $blue;
             padding-right: 5px;
+            margin-right: 5px;
         } 
         .githubrepo {
             font-size: 0.8em;
@@ -351,6 +352,10 @@ div#hero {
                 color: $darkBlue;
             }
         }
+        .githubmessage {
+            display: block;
+            font-size: 0.8em;
+        } 
         .githubdate {
             display: block;
             font-size: 0.8em;

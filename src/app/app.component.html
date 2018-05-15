@@ -147,9 +147,10 @@
     <div class="feedblock">
         <h4>GitHub</h4>
         <ul *ngIf="github$ | async as github">
-            <li *ngFor="let feed of github | slice:0:5">
+            <li *ngFor="let feed of github | slice:0:4">
                 <span class="githubtype">{{feed.type}}</span> 
-                <a title="{{feed.repo.name}} Projesi" class="githubrepo" href="https://github.com/{{feed.repo.name}}" target="_blank">{{feed.repo.name}}</a> 
+                <a title="{{feed.repo.name}} Projesi" class="githubrepo" href="https://github.com/{{feed.repo.name}}" target="_blank">{{feed.repo.name}}</a>
+                <span class="githubmessage">{{feed.payload.commits[0].message}}</span> 
                 <span class="githubdate"> {{ feed.created_at | date : "dd.MMM.y" }}</span>
             </li> 
         </ul>      
@@ -159,10 +160,10 @@
       <ul *ngIf="shots$ | async as shots">
         <li class="dribbleshot" *ngFor="let shot of shots">
                 <span class="dribbledesc">{{shot.title}} </span>
-                <img class="dribbleimg" srcset="{{shot.images.teaser}},
+                <a href="{{shot.html_url}}" target="_blank" title="{{shot.title}}"><img alt="{{shot.title}} Picture" class="dribbleimg" srcset="{{shot.images.teaser}},
                   {{shot.images.normaldpi}} 1.5x,
                   {{shot.images.hidpi}} 2x"
-          src="{{shot.images.hidpi}}" alt="{{shot.title}}">
+          src="{{shot.images.hidpi}}" alt="{{shot.title}}"></a>
         </li>
       </ul>      
     </div>
