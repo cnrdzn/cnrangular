@@ -26,7 +26,7 @@
     "protractor-dev": "^0.23.6",
     "rxjs": "^6.1.0",
     "rxjs-compat": "^6.1.0",
-    "typescript": "^2.8.3",
+    "typescript": "^2.7.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
