@@ -147,10 +147,9 @@
     <div class="feedblock">
         <h4>GitHub</h4>
         <ul *ngIf="github$ | async as github">
-            <li *ngFor="let feed of github | slice:0:4">
+            <li *ngFor="let feed of github | slice:0:5">
                 <span class="githubtype">{{feed.type}}</span> 
                 <a title="{{feed.repo.name}} Projesi" class="githubrepo" href="https://github.com/{{feed.repo.name}}" target="_blank">{{feed.repo.name}}</a>
-                <span class="githubmessage">{{feed.payload.commits[0].message}}</span> 
                 <span class="githubdate"> {{ feed.created_at | date : "dd.MMM.y" }}</span>
             </li> 
         </ul>      

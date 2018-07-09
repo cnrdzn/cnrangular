@@ -80,6 +80,12 @@ export class AppComponent implements OnInit {
     "date": "17.03.2018",
     "title": "proje 5",
     "image": "proje5.jpg"
+    },
+    {
+    "index": 6,
+    "date": "17.03.2018",
+    "title": "proje 5",
+    "image": "proje5.jpg"
     }
   ];
 }

@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url(https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,700&subset=latin-ext);
-@import url('https://fonts.googleapis.com/css?family=PT+Mono&subset=latin-ext');
+//@import url('https://fonts.googleapis.com/css?family=PT+Mono&subset=latin-ext');
 $fontFamily:'Josefin Sans', Helvetica Neue, Helvetica, Arial, sans-serif;
 $pageBackground:#ffffff;
 $pageTextColor: #353C4C;
@@ -11,7 +11,7 @@ $fontSizeMobile:14px;
 $lineHeightMobile:16px;
 
 $break-mobile: 320px;
-$break-tablet: 740px;
+$break-tablet: 834px;
 $break-desktop: 980px;
 $break-wide: 1300px;
 $blue:#0F50C0;
@@ -156,6 +156,8 @@ header {
 div#hero {
     background: $blue url('./assets/slice3.png') center center repeat;
     background-size: 80%;
+    -webkit-clip-path: polygon(100% 0, 100% 74%, 68% 100%, 0 74%, 0 0);
+    clip-path: polygon(100% 0, 100% 74%, 68% 100%, 0 74%, 0 0);
     overflow: auto;
     @media screen and (max-width: $break-tablet) {
         padding: 0px 15px;
@@ -233,12 +235,21 @@ div#hero {
         li {
             width: calc(50% - 2px);
             padding-bottom: 50px;
+            @media screen and (max-width: $break-tablet) {
+                width: 100%;
+            }
             .wtitle {
                 background: $pink;
                 padding: 10px;
                 position: relative;
                 color: #ffffff;
                 margin:0px 50px;
+                @media screen and (max-width: $break-tablet) {
+                    width: 90%;
+                    float: inherit;
+                    margin: 0px auto;
+                    display: block;
+                }
             }
             .wdate {
                 border-bottom:2px solid $blue;
@@ -249,14 +260,30 @@ div#hero {
                 float: left;
                 text-align: left;
                 border-right: 2px solid $blue;
+                @media screen and (max-width: $break-tablet) {
+                    float: inherit;
+                    text-align: center;
+                    border:0;
+                }
                 img {
                     margin:-10px 0px 0px 0px;
                     box-shadow: 15px 15px 0px $blue;
                     width: 80%;
+                    @media screen and (max-width: $break-tablet) {
+                        width: 100%;
+                        box-shadow: 0px 15px 0px $blue;
+                        margin: 0;
+                    }
                 }
                 .wdate {
                     float: right;
                     margin-right: 20px;
+                    @media screen and (max-width: $break-tablet) {
+                        width: 90%;
+                        float: inherit;
+                        margin: 10px auto;
+                        display: block;
+                    }
                 }
             }
             &:nth-child(even) {
@@ -264,14 +291,30 @@ div#hero {
                 text-align: right;
                 border-left: 2px solid $blue;
                 padding-top: 50px;
+                @media screen and (max-width: $break-tablet) {
+                    float: inherit;
+                    text-align: center;
+                    border:0;
+                }
                 img {
                     margin:-10px 0px 0px 0px;
                     box-shadow: -15px 15px 0px $blue;
                     width: 80%;
+                    @media screen and (max-width: $break-tablet) {
+                        width: 100%;
+                        box-shadow: 0px 15px 0px $blue;
+                        margin: 0;
+                    }
                 }
                 .wdate {
                     float: left;
-                    margin-left: 20px;
+                    margin-left: 20px;                    
+                    @media screen and (max-width: $break-tablet) {
+                        width: 90%;
+                        float: inherit;
+                        margin: 10px auto;
+                        display: block;
+                    }
                 }
 
             }
@@ -287,6 +330,11 @@ div#hero {
         margin:0;
         figcaption {
             font-size: 1.3em;
+        }
+        @media screen and (max-width: $break-tablet) {
+            width: 90%;
+            margin:0px auto;
+            float: inherit;
         }
     }
     a {
@@ -312,6 +360,9 @@ div#hero {
             flex-grow: 1;
             width: 27%;
             margin: 1%;
+            @media screen and (max-width: $break-tablet) {
+                width: 90%;
+            }
             ul {
                 margin: 0px;
                 padding: 0px;
@@ -445,6 +496,11 @@ footer {
     font-size: 0.7em;
     font-weight: 700;
     color:$blue;
+        @media screen and (max-width: $break-tablet) {
+            width: 90%;
+            display: block;
+            text-align: center;
+        }
         span {
             border-top:2px solid $blue;
             padding: 15px 0;
