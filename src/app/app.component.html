@@ -124,8 +124,10 @@
   <div class="feedWrapper">
     <div class="feedblock">
       <h4>İletişim Formu</h4>
-      <form id="contactForm" method="POST" netlify>
-    
+      <form id="contactForm" netlify-honeypot="bot-field"  method="POST" netlify>
+        <p style="display:none;">
+          <label>Don’t fill this out: <input name="bot-field"></label>
+        </p>
         <div class="material-form-field">
           <input type="text" required name="name" id="field-name"/>
           <label class="material-form-field-label" for="field-name">Adınız</label>

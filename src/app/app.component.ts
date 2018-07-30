@@ -38,7 +38,6 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
 
-
         this.github$ = this.http
         .get<GitHub[]>("https://api.github.com/users/cnrdzn/events")
         .map(data => forOwn(data))
