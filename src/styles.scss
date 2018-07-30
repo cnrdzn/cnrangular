@@ -84,7 +84,8 @@ header {
             justify-content: center;
             padding: 0px 35px;
             @media screen and (max-width: $break-tablet) {
-                padding:0;
+                padding:0;    
+                width: 100%;
             }
                 a {
                     padding: 0 15px;
@@ -160,7 +161,9 @@ div#hero {
     clip-path: polygon(100% 0, 100% 74%, 68% 100%, 0 74%, 0 0);
     overflow: auto;
     @media screen and (max-width: $break-tablet) {
-        padding: 0px 15px;
+        padding: 0px 15px;    
+        -webkit-clip-path: none;
+        clip-path: none;
     }
 }
 #aboutMe {
@@ -460,7 +463,7 @@ div#hero {
       color:$blue;
       border-bottom:1px solid $blue;
       outline:none;
-      resize: vertical; 
+      resize: none; 
   
       &:invalid{
         outline:none;

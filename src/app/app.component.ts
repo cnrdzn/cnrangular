@@ -54,37 +54,37 @@ export class AppComponent implements OnInit {
     {
     "index": 1,
     "date": "14.03.2018",
-    "title": "proje 1",
-    "image": "proje1.jpg"
+    "title": "Hava Kirlilik İzleme Sistemi",
+    "image": "proje6.jpg"
     },
     {
     "index": 2,
     "date": "15.03.2018",
-    "title": "proje 2",
+    "title": "Onursal Hukuk Bürosu Logo Tasarımı",
     "image": "proje2.jpg"
     },
     {
     "index": 3,
     "date": "16.03.2018",
-    "title": "proje 3",
+    "title": "Etkileşimli Sınıf Yönetimi Uygulaması",
     "image": "proje3.jpg"
     },
     {
     "index": 4,
     "date": "17.03.2018",
-    "title": "proje 4",
-    "image": "proje4.jpg"
+    "title": "Tribün 12 Web Uygulaması",
+    "image": "proje7.jpg"
     },
     {
     "index": 5,
     "date": "17.03.2018",
-    "title": "proje 5",
-    "image": "proje5.jpg"
+    "title": "Polis Telsizi Dinleme Uygulaması",
+    "image": "proje8.jpg"
     },
     {
     "index": 6,
     "date": "17.03.2018",
-    "title": "proje 5",
+    "title": "Kirlilik Bildirimi Uyglaması",
     "image": "proje5.jpg"
     }
   ];
