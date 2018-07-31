@@ -124,17 +124,19 @@
   <div class="feedWrapper">
     <div class="feedblock">
       <h4>İletişim Formu</h4>
-      <form id="contactForm" netlify-honeypot="bot-field"  method="POST" netlify>
-        <p style="display:none;">
-          <label>Don’t fill this out: <input name="bot-field"></label>
-        </p>
+      <span id="thank-you-message" class="hidden" style="color:green;">
+        Benimle iletişime geçtiğiniz için teşekkür ederim!
+      </span>
+      <form id="contactForm" action="https://getsimpleform.com/messages?form_api_token=859da6751251b83b6d2aef1eb856bd2c" method="post">
+        <input type='hidden' name='redirect_to' value='https://cnr.design/#thank-you-message' />
+
         <div class="material-form-field">
-          <input type="text" required name="name" id="field-name"/>
+          <input type="text" id="field-name" name="name"/>
           <label class="material-form-field-label" for="field-name">Adınız</label>
         </div>
           
         <div class="material-form-field">
-          <input type="text" required name="email" id="field-email"/>
+          <input type="text" required name="field-email" id="email"/>
           <label class="material-form-field-label" for="field-email">Email adresiniz</label>
         </div>
         <div class="material-form-field">

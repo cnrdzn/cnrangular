@@ -23,6 +23,7 @@
     "@angular/router": "^6.0.2",
     "core-js": "^2.5.6",
     "hoek": "^5.0.3",
+    "node-sass": "^4.9.2",
     "protractor-dev": "^0.23.6",
     "rxjs": "^6.1.0",
     "rxjs-compat": "^6.1.0",

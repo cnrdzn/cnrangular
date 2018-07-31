@@ -488,7 +488,13 @@ div#hero {
       }
     }
   }
-  
+#thank-you-message {
+    display:block;
+}
+.hidden {
+    display: none !important;
+    visibility: hidden !important;
+}
 footer {
     max-width: $break-wide;
     display: flex;

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
-import {HttpClient,HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
+
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
@@ -22,7 +23,19 @@ interface Dribbble {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+
+
+  constructor(private http:HttpClient) {
+    window.onload = (function(){
+      if(window.location.hash == '#thank-you-message'){
+      document.getElementById('thank-you-message').className = 'none';
+      document.getElementById('contactForm').className = 'hidden';
+      }
+      })
+  }
+
   title = 'app';
+  name: string
 
   github$: Observable<GitHub[]>;
   
@@ -32,10 +45,6 @@ export class AppComponent implements OnInit {
 
 
 
-
-  constructor(private http:HttpClient) {
-
-  }
   ngOnInit() {
 
         this.github$ = this.http
