@@ -1,11 +1,13 @@
+
+import {map, tap} from 'rxjs/operators';
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs/Observable";
+import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
 
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/filter';
+
+
+
+
 import { forOwn } from 'lodash';
 
 interface GitHub {
@@ -48,13 +50,13 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
         this.github$ = this.http
-        .get<GitHub[]>("https://api.github.com/users/cnrdzn/events")
-        .map(data => forOwn(data))
+        .get<GitHub[]>("https://api.github.com/users/cnrdzn/events").pipe(
+        map(data => forOwn(data)))
       
         this.shots$ = this.http
-        .get<Dribbble[]>("https://api.dribbble.com/v2/user/shots?access_token=9b2e2043a2d36bf62d82756dbb65d63ecd91846b1a154aa2e0acb3e93e021a53")
-        .map(data => forOwn(data))
-        .do(data => console.log(data));
+        .get<Dribbble[]>("https://api.dribbble.com/v2/user/shots?access_token=9b2e2043a2d36bf62d82756dbb65d63ecd91846b1a154aa2e0acb3e93e021a53").pipe(
+        map(data => forOwn(data)),
+        tap(data => console.log(data)),);
 
   }
 
